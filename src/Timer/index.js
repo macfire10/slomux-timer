@@ -36,12 +36,14 @@ class Timer extends Component {
     }
   
     handleStart() {
+        // cancer previous timer,
         const { timerId } = this.state;
         timerId && clearTimeout(timerId);
         this.setState({ currentTime: 0, })
 
         const { currentInterval } = this.props;
 
+        // bind a setInterval function
         const timer = setInterval(function () {
             this.setState({ currentTime: this.state.currentTime + currentInterval });
         }.bind(this), currentInterval * 1000)
@@ -50,6 +52,7 @@ class Timer extends Component {
     }
     
     handleStop() {
+     // reset a timer and cancel the timer
       const { timerId } = this.state;
       this.setState({ currentTime: 0 })
       clearTimeout(timerId);

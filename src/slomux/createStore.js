@@ -13,6 +13,7 @@ export const createStore = (reducer, initialState) => {
     const subscribe = listener => {
         listeners.push(listener)
 
+        // introduce an unsubscribe method
         return function () {
             const index = listeners.indexOf(listener)
             listeners.splice(index, 1)
